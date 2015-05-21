@@ -18,7 +18,7 @@ public class Data {
         names.add("Baby oye");
         names.add("Bigrock");
         names.add("Daburaroma.com");
-        names.add("Domino");
+        names.add("Domino's");
         names.add("Dailyobjects.com");
         names.add("Expedia");
         names.add("Freecharge");

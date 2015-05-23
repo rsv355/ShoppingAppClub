@@ -8,16 +8,18 @@ import java.util.ArrayList;
 public class Data {
     public ArrayList<String> names;
     public ArrayList<String> links;
+    public ArrayList<String> images;
 
     Data(){
         names = new ArrayList<String>();
         links = new ArrayList<String>();
+        images = new ArrayList<String>();
 
 
         names.add("Amazon");
         names.add("Baby oye");
         names.add("Bigrock");
-        names.add("Daburaroma.com");
+
         names.add("Domino's");
         names.add("Dailyobjects.com");
         names.add("Expedia");
@@ -64,7 +66,7 @@ public class Data {
         links.add("http://www.amazon.in/ref=as_li_ss_tl?_encoding=UTF8&camp=3626&creative=24822&linkCode=ur2&tag=wwwsmartjobal-21");
         links.add("http://clk.omgt5.com/?AID=480953&PID=8137&WID=46679");
         links.add("http://www.bigrock.in/?a_aid=51042bd13ee44");
-        links.add("http://clk.omgt5.com/?AID=480953&PID=11683&WID=46679");
+
         links.add("http://clk.omgt5.com/?AID=480953&PID=9706&WID=46679");
         links.add("http://clk.omgt5.com/?AID=480953&PID=10152&WID=46679");
         links.add("http://clk.omgt5.com/?AID=480953&PID=7775&WID=46679");
@@ -106,5 +108,50 @@ public class Data {
 
         links.add("http://clk.omgt5.com/?AID=480953&PID=9547&WID=46679");
         links.add("http://clk.omgt5.com/?AID=480953&PID=8422&WID=46679");
+
+        //--------------------images start
+
+        images.add("amazon");
+        images.add("babyoye");
+        images.add("bigrock");
+        images.add("dominos");
+        images.add("dailyobjects");
+        images.add("expedia");
+        images.add("freecharge");
+        images.add("fabfurnish");
+        images.add("faishonara");
+        images.add("flipkart");
+        images.add("firstcry");
+        images.add("fernsnpetals");
+        images.add("fetise");
+        images.add("foodpanda");
+        images.add("greendust");
+        images.add("greetzap");
+        images.add("homeshop");
+        images.add("hotels");
+        images.add("indiarush");
+        images.add("jabong");
+        images.add("jetairways");
+        images.add("justeat");
+        images.add("lenskart");
+        images.add("limeroad");
+        images.add("makemytrip");
+        images.add("myntra");
+        images.add("paytm");
+        images.add("pepperfry");
+        images.add("preetyscrets");
+        images.add("printvenue");
+        images.add("rediif");
+        images.add("shopclues");
+        images.add("sanpdeal");
+        images.add("ticketgoose");
+        images.add("timesinternet");
+        images.add("travelguru");
+        images.add("trendin");
+        images.add("yatra1");
+        images.add("yatra1");
+        images.add("yepme");
+        images.add("zivame");
+        images.add("zovi");
     }
 }

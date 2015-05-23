@@ -4,6 +4,8 @@ package sac.app.com.shoppingappclub;
  * Created by Krishna on 30-04-2015.
  */
 import android.content.Context;
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
 import android.graphics.Typeface;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -13,7 +15,9 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import java.util.ArrayList;
+import android.util.Log;
 
+import com.bumptech.glide.Glide;
 
 class ListAdapter extends BaseAdapter {
     LayoutInflater layoutInflator;
@@ -22,6 +26,10 @@ class ListAdapter extends BaseAdapter {
     public ListAdapter(Context ctx,Data obj){
         this.ctx = ctx;
         this.value = obj;
+
+        Log.e("size of names",""+value.names.size());
+        Log.e("size of likns",""+value.links.size());
+        Log.e("size of img",""+value.images.size());
     }
 
     @Override
@@ -53,11 +61,22 @@ class ListAdapter extends BaseAdapter {
         //txt.setTypeface(tf,Typeface.BOLD);
        txt.setText(value.names.get(position));
 
+        BitmapFactory.Options options = new BitmapFactory.Options();
+        options.inSampleSize = 8;
 
-   //    String imgName = images.get(position);
-     //  int resId = ctx.getResources().getIdentifier(imgName, "drawable", ctx.getPackageName());
+        String imgName = value.images.get(position);
+         int resId = ctx.getResources().getIdentifier(imgName, "drawable", ctx.getPackageName());
 
-       //icon.setBackgroundResource(resId);
+        Bitmap  temp =    BitmapFactory.decodeResource(ctx.getResources(), resId);
+
+       // Bitmap preview_bitmap = BitmapFactory.decodeStream(temp, null, options);
+
+        Glide.with(ctx)
+                .load(resId)
+                .into(icon);
+       // icon.setImageBitmap(temp);
+
+        System.gc();
 
         return view;
     }

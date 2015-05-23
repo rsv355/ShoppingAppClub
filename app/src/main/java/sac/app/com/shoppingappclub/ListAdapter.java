@@ -57,8 +57,8 @@ class ListAdapter extends BaseAdapter {
        ImageView icon = (ImageView)view.findViewById(R.id.imgIcon);
 
 
-       // Typeface tf = Typeface.createFromAsset(ctx.getAssets(),"fonts/Gabriela-Regular.ttf");
-        //txt.setTypeface(tf,Typeface.BOLD);
+//        Typeface tf = Typeface.createFromAsset(ctx.getAssets(),"fonts/f1.ttf");
+   //     txt.setTypeface(tf,Typeface.BOLD);
        txt.setText(value.names.get(position));
 
         BitmapFactory.Options options = new BitmapFactory.Options();

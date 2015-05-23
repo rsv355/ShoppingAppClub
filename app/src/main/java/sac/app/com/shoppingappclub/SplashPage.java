@@ -1,6 +1,7 @@
 package sac.app.com.shoppingappclub;
 
 import android.content.Intent;
+import android.graphics.Typeface;
 import android.net.ConnectivityManager;
 import android.net.NetworkInfo;
 import android.os.Bundle;
@@ -9,6 +10,7 @@ import android.support.v7.app.ActionBarActivity;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.util.Log;
+import android.widget.TextView;
 import android.widget.Toast;
 
 public class SplashPage extends ActionBarActivity {
@@ -18,7 +20,10 @@ public class SplashPage extends ActionBarActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_splash);
 
-
+        TextView txtTitle = (TextView)findViewById(R.id.txt);
+        Typeface tf = Typeface.createFromAsset(getAssets(),"fonts/f1.ttf");
+        txtTitle.setTypeface(tf,Typeface.BOLD);
+        txtTitle.setText(getString(R.string.app_name));
 
     }
 

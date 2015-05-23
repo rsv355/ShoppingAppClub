@@ -33,9 +33,11 @@ public class MainActivity extends ActionBarActivity {
         list.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> adapterView, View view, int pos, long l) {
-               /* Intent ii = new Intent(MainActivity.this, SubActivity.class);
-                ii.putExtra("pos", pos);
-                startActivity(ii);*/
+                Data obj = new Data();
+
+                Intent ii = new Intent(MainActivity.this, webview.class);
+                ii.putExtra("url", obj.links.get(pos));
+                startActivity(ii);
             }
         });
     }

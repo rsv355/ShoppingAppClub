@@ -56,6 +56,7 @@ public class webview extends ActionBarActivity {
                     }
                 }
             });
+
         browser.getSettings().setJavaScriptEnabled(true);
 
         browser.getSettings().setLoadWithOverviewMode(true);

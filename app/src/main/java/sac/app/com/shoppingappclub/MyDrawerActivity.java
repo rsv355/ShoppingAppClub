@@ -96,6 +96,7 @@ public class MyDrawerActivity extends ActionBarActivity {
         drawerLayout = (DrawerLayout) findViewById(R.id.drawerLayout);
 
         navigationDrawerAdapter = new ArrayAdapter<String>(MyDrawerActivity.this, android.R.layout.simple_list_item_activated_1, android.R.id.text1, leftSliderData);
+
         leftDrawerList.setAdapter(new lViewadapter());
 
 

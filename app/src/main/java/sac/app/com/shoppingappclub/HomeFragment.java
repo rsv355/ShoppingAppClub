@@ -11,6 +11,8 @@ import android.graphics.Typeface;
 import android.net.Uri;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
+import android.support.v4.app.FragmentManager;
+import android.support.v4.app.FragmentTransaction;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -134,8 +136,21 @@ public class HomeFragment extends Fragment implements View.OnClickListener{
 
     void callWebview(int pos){
         Data obj = new Data();
-        Intent ii = new Intent(getActivity(), webview.class);
+      /*  Intent ii = new Intent(getActivity(), webview.class);
         ii.putExtra("url", obj.links.get(pos));
-        startActivity(ii);
+        startActivity(ii);*/
+
+        Bundle bnd = new Bundle();
+        bnd.putString("url", obj.links.get(pos));
+
+        FragmentManager manager1 = getActivity().getSupportFragmentManager();
+        FragmentTransaction ft1 = manager1.beginTransaction();
+
+        WebViewFragment web = new WebViewFragment();
+        web.setArguments(bnd);
+        ft1.replace(R.id.main_container, web);
+
+        ft1.addToBackStack("");
+        ft1.commit();
     }
 }

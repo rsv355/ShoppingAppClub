@@ -7,6 +7,7 @@ package sac.app.com.shoppingappclub;
 
 import android.app.ProgressDialog;
 import android.content.Intent;
+import android.graphics.Bitmap;
 import android.net.ConnectivityManager;
 import android.net.NetworkInfo;
 import android.os.Bundle;
@@ -17,6 +18,7 @@ import android.view.ViewGroup;
 import android.webkit.WebView;
 import android.webkit.WebViewClient;
 import android.widget.AdapterView;
+import android.widget.ProgressBar;
 import android.widget.Toast;
 
 import com.twotoasters.jazzylistview.JazzyListView;
@@ -25,6 +27,7 @@ import com.twotoasters.jazzylistview.effects.CurlEffect;
 
 public class WebViewFragment extends Fragment {
     WebView browser;
+    ProgressBar progressBar;
     public WebViewFragment() {
         // Required empty public constructor
     }
@@ -42,7 +45,7 @@ public class WebViewFragment extends Fragment {
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
         View view = inflater.inflate(R.layout.webview, container, false);
-
+        progressBar = (ProgressBar)view. findViewById(R.id.progressBar);
         browser = (WebView)view. findViewById(R.id.web);
 
         if(checkInternet()){
@@ -64,24 +67,15 @@ public class WebViewFragment extends Fragment {
             ProgressDialog progressDialog;
 
 
-            //Show loader on url load
-            public void onLoadResource (WebView view, String url) {
-                if (progressDialog == null) {
-                    // in standard case YourActivity.this
-                    progressDialog = new ProgressDialog(getActivity());
-                    progressDialog.setMessage("Loading...");
-                    progressDialog.show();
-                }
+            @Override
+            public void onPageStarted(WebView view, String url, Bitmap favicon) {
+                super.onPageStarted(view, url, favicon);
+                progressBar.setVisibility(View.VISIBLE);//new
             }
+
+
             public void onPageFinished(WebView view, String url) {
-                try{
-                    if (progressDialog.isShowing()) {
-                        progressDialog.dismiss();
-                        progressDialog = null;
-                    }
-                }catch(Exception exception){
-                    exception.printStackTrace();
-                }
+                progressBar.setVisibility(View.GONE);//new
             }
         });
 

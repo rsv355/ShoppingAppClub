@@ -90,7 +90,7 @@ public class MyDrawerActivity extends ActionBarActivity {
         //  btnLogout = (ButtonRectangle)findViewById(R.id.btnLogout);
         leftDrawerList = (ListView) findViewById(R.id.left_drawer);
         toolbar = (Toolbar) findViewById(R.id.toolbar);
-        toolbar.setBackgroundColor(Color.parseColor("#494949"));
+     
         drawerLayout = (DrawerLayout) findViewById(R.id.drawerLayout);
 
         navigationDrawerAdapter = new ArrayAdapter<String>(MyDrawerActivity.this, android.R.layout.simple_list_item_activated_1, android.R.id.text1, leftSliderData);

@@ -5,10 +5,7 @@ package sac.app.com.shoppingappclub;
  */
 
 
-import android.content.Intent;
-import android.content.SharedPreferences;
 import android.content.res.Configuration;
-import android.graphics.Color;
 import android.os.Bundle;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentTransaction;
@@ -75,7 +72,7 @@ public class MyDrawerActivity extends ActionBarActivity {
 
         FragmentManager manager = getSupportFragmentManager();
         FragmentTransaction ft = manager.beginTransaction();
-        ft.replace(R.id.main_container, new BlankFragment());
+        ft.replace(R.id.main_container, new HomeFragment());
         ft.commit();
 
 
@@ -127,16 +124,15 @@ public class MyDrawerActivity extends ActionBarActivity {
 
 
                     case 0:
-                        Toast.makeText(MyDrawerActivity.this,"Clicked 1",Toast.LENGTH_SHORT).show();
 
 
-                     /*   FragmentManager manager = getSupportFragmentManager();
+                        FragmentManager manager = getSupportFragmentManager();
                         FragmentTransaction ft = manager.beginTransaction();
-                        ft.replace(R.id.main_container, new MyAccountFragment(), "MA");
-                        // ft.addToBackStack("");
+                        ft.replace(R.id.main_container, new HomeFragment(), "MA");
+                         ft.addToBackStack("");
                         ft.commit();
 
-                        for (int i = 0; i < fm.getBackStackEntryCount(); i++) {
+                       /* for (int i = 0; i < fm.getBackStackEntryCount(); i++) {
                             fm.popBackStack();
                         }*/
 
@@ -145,14 +141,14 @@ public class MyDrawerActivity extends ActionBarActivity {
                     case 1:
 
 
-//                        FragmentManager manager1 = getSupportFragmentManager();
-//                        FragmentTransaction ft1 = manager1.beginTransaction();
-//                        ft1.replace(R.id.main_container, new Profile());
-//                       // ft1.addToBackStack("");
-//                        ft1.commit();
-//                        for (int i = 0; i < fm.getBackStackEntryCount(); i++) {
-//                            fm.popBackStack();
-//                        }
+                        FragmentManager manager1 = getSupportFragmentManager();
+                        FragmentTransaction ft1 = manager1.beginTransaction();
+                        ft1.replace(R.id.main_container, new SubFragment());
+                        ft1.addToBackStack("");
+                        ft1.commit();
+                        /*for (int i = 0; i < fm.getBackStackEntryCount(); i++) {
+                            fm.popBackStack();
+                        }*/
                         break;
                     case 2:
 

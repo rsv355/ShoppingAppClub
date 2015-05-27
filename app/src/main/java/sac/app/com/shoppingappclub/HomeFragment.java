@@ -6,6 +6,7 @@ package sac.app.com.shoppingappclub;
 
 
 import android.app.Activity;
+import android.content.Intent;
 import android.graphics.Typeface;
 import android.net.Uri;
 import android.os.Bundle;
@@ -16,11 +17,11 @@ import android.view.ViewGroup;
 import android.widget.TextView;
 
 
-public class BlankFragment extends Fragment {
+public class HomeFragment extends Fragment implements View.OnClickListener{
 
 
 
-    public BlankFragment() {
+    public HomeFragment() {
         // Required empty public constructor
     }
 
@@ -65,7 +66,21 @@ public class BlankFragment extends Fragment {
         txt9.setTypeface(tf,Typeface.BOLD);
         txt10.setTypeface(tf,Typeface.BOLD);
         txt11.setTypeface(tf,Typeface.BOLD);
-        txt12.setTypeface(tf,Typeface.BOLD);
+        txt12.setTypeface(tf, Typeface.BOLD);
+
+        txt1.setOnClickListener(this);
+        txt2.setOnClickListener(this);
+        txt3.setOnClickListener(this);
+        txt4.setOnClickListener(this);
+        txt5.setOnClickListener(this);
+        txt6.setOnClickListener(this);
+        txt7.setOnClickListener(this);
+        txt8.setOnClickListener(this);
+        txt9.setOnClickListener(this);
+        txt10.setOnClickListener(this);
+        txt11.setOnClickListener(this);
+        txt12.setOnClickListener(this);
+
 
 
 
@@ -73,6 +88,54 @@ public class BlankFragment extends Fragment {
     }
 
 
+    @Override
+    public void onClick(View view) {
 
+        switch (view.getId()){
 
+            case R.id.txt1:
+                callWebview(9);
+                break;
+            case R.id.txt2:
+                callWebview(0);
+                break;
+            case R.id.txt3:
+                callWebview(32);
+                break;
+            case R.id.txt4:
+                callWebview(26);
+                break;
+            case R.id.txt5:
+                callWebview(25);
+                break;
+            case R.id.txt6:
+                callWebview(19);
+                break;
+            case R.id.txt7:
+                callWebview(21);
+                break;
+            case R.id.txt8:
+                callWebview(14);
+                break;
+            case R.id.txt9:
+                callWebview(39);
+                break;
+            case R.id.txt10:
+                callWebview(33);
+                break;
+            case R.id.txt11:
+                callWebview(1);
+                break;
+            case R.id.txt12:
+                callWebview(6);
+                break;
+        }
+    }
+
+    void callWebview(int pos){
+        Data obj = new Data();
+        Intent ii = new Intent(getActivity(), webview.class);
+        ii.putExtra("url", obj.links.get(pos));
+        startActivity(ii);
+    }
 }

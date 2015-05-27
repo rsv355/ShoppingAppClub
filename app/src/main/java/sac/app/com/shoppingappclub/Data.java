@@ -16,51 +16,51 @@ public class Data {
         images = new ArrayList<String>();
 
 
-        names.add("Amazon");
-        names.add("Baby oye");
-        names.add("Bigrock");
+        names.add("Amazon");//0
+        names.add("Baby oye");//1
+        names.add("Bigrock");//2
 
-        names.add("Domino's");
-        names.add("Dailyobjects.com");
-        names.add("Expedia");
-        names.add("Freecharge");
-        names.add("Fabfurnish");
-        names.add("Fashionara");
-        names.add("Flipkart");
-        names.add("Firstcry");
-        names.add("Ferns N Petals");
-        names.add("Fetise.com");
-        names.add("Foodpanda.in");
-        names.add("Greendust");
-        names.add("Geetzap");
-        names.add("Homeshop18");
-        names.add("Hotels.com");
-        names.add("Indiarush");
-        names.add("Jabong");
-        names.add("Jet Airways");
-        names.add("Justeat");
-        names.add("Lenskart");
-        names.add("Limeroad");
-        names.add("Makemytrip");
-        names.add("Myntra");
-        names.add("Paytm");
-        names.add("Pepperfry");
-        names.add("Pettysecrets");
-        names.add("Printvenue");
-        names.add("Reddifshopping");
-        names.add("Shopclues");
+        names.add("Domino's");//3
+        names.add("Dailyobjects.com");//4
+        names.add("Expedia");//5
+        names.add("Freecharge");//6
+        names.add("Fabfurnish");//7
+        names.add("Fashionara");//8
+        names.add("Flipkart");//9
+        names.add("Firstcry");//10
+        names.add("Ferns N Petals");//11
+        names.add("Fetise.com");//12
+        names.add("Foodpanda.in");//13
+        names.add("Greendust");//14
+        names.add("Geetzap");//15
+        names.add("Homeshop18");//16
+        names.add("Hotels.com");//17
+        names.add("Indiarush");//18
+        names.add("Jabong");//19
+        names.add("Jet Airways");//20
+        names.add("Justeat");//21
+        names.add("Lenskart");//22
+        names.add("Limeroad");//23
+        names.add("Makemytrip");//24
+        names.add("Myntra");//25
+        names.add("Paytm");//26
+        names.add("Pepperfry");//27
+        names.add("Pettysecrets");//28
+        names.add("Printvenue");//29
+        names.add("Reddifshopping");//30
+        names.add("Shopclues");//31
 
-        names.add("Snapdeal");
-        names.add("Ticketgoose");
-        names.add("Timesinternet");
-        names.add("Travelguru");
-        names.add("Trendin");
-        names.add("Yatra Flights");
-        names.add("Yatra Hotels");
-        names.add("Yepme");
+        names.add("Snapdeal");//32
+        names.add("Ticketgoose");//33
+        names.add("Timesinternet");//34
+        names.add("Travelguru");//35
+        names.add("Trendin");//36
+        names.add("Yatra Flights");//37
+        names.add("Yatra Hotels");//38
+        names.add("Yepme");//39
 
-        names.add("Zivame");
-        names.add("Zovi");
+        names.add("Zivame");//40
+        names.add("Zovi");//41
 //---------------------------------------
 
         links.add("http://www.amazon.in/ref=as_li_ss_tl?_encoding=UTF8&camp=3626&creative=24822&linkCode=ur2&tag=wwwsmartjobal-21");
@@ -74,6 +74,9 @@ public class Data {
         links.add("http://clk.omgt5.com/?AID=480953&PID=9319&WID=46679");
         links.add("http://clk.omgt5.com/?AID=480953&PID=9828&WID=46679");
         links.add("http://dl.flipkart.com/dl/?affid=debasmita2");
+
+
+
         links.add("http://clk.omgt5.com/?AID=480953&PID=10027&WID=46679");
         links.add("http://clk.omgt5.com/?AID=480953&PID=7970&WID=46679");
         links.add("http://clk.omgt5.com/?AID=480953&PID=10578&WID=46679");

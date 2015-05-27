@@ -165,7 +165,7 @@ public class MyDrawerActivity extends ActionBarActivity {
                         ft11.addToBackStack("");
                         ft11.commit();
                         break;
-                    case 4:
+                    case 5:
 
                         final String appPackageName4 = "sac.app.com.shoppingappclub"; // getPackageName() from Context or Activity object
                         try {
@@ -175,7 +175,7 @@ public class MyDrawerActivity extends ActionBarActivity {
                         }
                         break;
 
-                    case 5:
+                    case 4:
                         String text = "Please Check out this amazing Indian Shopping Club app , \n https://play.google.com/store/apps/details?id=sac.app.com.shoppingappclub";
 
                         Intent sharingIntent = new Intent(Intent.ACTION_SEND);

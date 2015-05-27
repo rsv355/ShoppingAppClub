@@ -27,9 +27,7 @@ import android.widget.ImageView;
 import android.widget.ListView;
 import android.widget.ProgressBar;
 import android.widget.TextView;
-
-
-
+import android.widget.Toast;
 
 
 public class MyDrawerActivity extends ActionBarActivity {
@@ -65,7 +63,7 @@ public class MyDrawerActivity extends ActionBarActivity {
 
 
         if (toolbar != null) {
-            toolbar.setTitle("Home");
+            toolbar.setTitle(getResources().getString(R.string.app_name));
             setSupportActionBar(toolbar);
         }
 
@@ -129,6 +127,7 @@ public class MyDrawerActivity extends ActionBarActivity {
 
 
                     case 0:
+                        Toast.makeText(MyDrawerActivity.this,"Clicked 1",Toast.LENGTH_SHORT).show();
 
 
                      /*   FragmentManager manager = getSupportFragmentManager();
@@ -295,22 +294,5 @@ public class MyDrawerActivity extends ActionBarActivity {
         super.onConfigurationChanged(newConfig);
         drawerToggle.onConfigurationChanged(newConfig);
     }
-/*
-    @Override
-    public boolean onCreateOptionsMenu(Menu menu) {
-        getMenuInflater().inflate(R.menu.menu_my_drawer, menu);
-        return true;
-    }
 
-    @Override
-    public boolean onOptionsItemSelected(MenuItem item) {
-        int id = item.getItemId();
-        if (id == R.id.action_settings) {
-            return true;
-        }
-        if (drawerToggle.onOptionsItemSelected(item)) {
-            return true;
-        }
-        return super.onOptionsItemSelected(item);
-    }*/
 }

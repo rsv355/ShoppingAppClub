@@ -5,7 +5,9 @@ package sac.app.com.shoppingappclub;
  */
 
 
+import android.content.Intent;
 import android.content.res.Configuration;
+import android.net.Uri;
 import android.os.Bundle;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentTransaction;
@@ -132,10 +134,6 @@ public class MyDrawerActivity extends ActionBarActivity {
                          ft.addToBackStack("");
                         ft.commit();
 
-                       /* for (int i = 0; i < fm.getBackStackEntryCount(); i++) {
-                            fm.popBackStack();
-                        }*/
-
 
                         break;
                     case 1:
@@ -146,35 +144,46 @@ public class MyDrawerActivity extends ActionBarActivity {
                         ft1.replace(R.id.main_container, new SubFragment());
                         ft1.addToBackStack("");
                         ft1.commit();
-                        /*for (int i = 0; i < fm.getBackStackEntryCount(); i++) {
-                            fm.popBackStack();
-                        }*/
+
                         break;
                     case 2:
 
 
-                        /*FragmentManager manager22 = getSupportFragmentManager();
-                        FragmentTransaction ft22 = manager22.beginTransaction();
-                        ft22.replace(R.id.main_container, new MyRecipient_home());
-                       // ft22.addToBackStack("");
-                        ft22.commit();
-                        for (int i = 0; i < fm.getBackStackEntryCount(); i++) {
-                            fm.popBackStack();
-                        }*/
+                        FragmentManager manager12 = getSupportFragmentManager();
+                        FragmentTransaction ft12 = manager12.beginTransaction();
+                        ft12.replace(R.id.main_container, new AboutusFragment());
+                        ft12.addToBackStack("");
+                        ft12.commit();
+
 
 
                         break;
                     case 3:
+                        FragmentManager manager11 = getSupportFragmentManager();
+                        FragmentTransaction ft11 = manager11.beginTransaction();
+                        ft11.replace(R.id.main_container, new ContactusFragment());
+                        ft11.addToBackStack("");
+                        ft11.commit();
+                        break;
+                    case 4:
 
+                        final String appPackageName4 = "sac.app.com.shoppingappclub"; // getPackageName() from Context or Activity object
+                        try {
+                            startActivity(new Intent(Intent.ACTION_VIEW, Uri.parse("market://details?id=" + appPackageName4)));
+                        } catch (android.content.ActivityNotFoundException anfe) {
+                            startActivity(new Intent(Intent.ACTION_VIEW, Uri.parse("https://play.google.com/store/apps/details?id=" + appPackageName4)));
+                        }
+                        break;
 
-                   /*     FragmentManager manager2 = getSupportFragmentManager();
-                        FragmentTransaction ft2 = manager2.beginTransaction();
-                        ft2.replace(R.id.main_container, new Aboutus());
-                       // ft2.addToBackStack("");
-                        ft2.commit();
-                        for (int i = 0; i < fm.getBackStackEntryCount(); i++) {
-                            fm.popBackStack();
-                        }*/
+                    case 5:
+                        String text = "Please Check out this amazing Indian Shopping Club app , \n https://play.google.com/store/apps/details?id=sac.app.com.shoppingappclub";
+
+                        Intent sharingIntent = new Intent(Intent.ACTION_SEND);
+                        sharingIntent.setType("text/plain");
+                        sharingIntent.putExtra(android.content.Intent.EXTRA_TEXT, text);
+                        // sharingIntent.putExtra(android.content.Intent.EXTRA_SUBJECT, "Subject");
+                        startActivity(Intent.createChooser(sharingIntent, "Share using"));
+
                         break;
                 }
 

@@ -39,17 +39,15 @@ public class MyDrawerActivity extends ActionBarActivity {
     private ActionBarDrawerToggle drawerToggle;
     private ListView leftDrawerList;
     private ArrayAdapter<String> navigationDrawerAdapter;
-    private String[] leftSliderData = {"Home", "Profile", "My Recipient", "About Us", "Contact Us", "How It Works", "FAQ", "Settings", "Logout"};
-/*
-    private int[] imagelist = {R.drawable.icon_home,
-            R.drawable.icon_editprofile2,
-            R.drawable.icon_myrecipient,
-            R.drawable.icon_aboutus,
-            R.drawable.icon_contactus,
-            R.drawable.icon_how_it_works,
-            R.drawable.icon_faq,
-            R.drawable.icon_setting,
-            R.drawable.icon_logout};*/
+    private String[] leftSliderData = {"Home", "More links", "About Us", "Contact Us", "Share App", "Rate Us"};
+
+    private int[] imagelist = {R.drawable.ic_action_home,
+            R.drawable.morelinks,
+            R.drawable.aboutus,
+            R.drawable.contactus,
+            R.drawable.share,
+            R.drawable.rate
+           };
 
 
     public ProgressBar pb_toolbar;
@@ -227,10 +225,10 @@ public class MyDrawerActivity extends ActionBarActivity {
             View row;
             row = inflater.inflate(R.layout.mydrawer_listview_layout, parent, false);
             TextView title = (TextView) row.findViewById(R.id.txtTitle);
-        /*    ImageView img_icon = (ImageView) row.findViewById(R.id.imgIcon);
+            ImageView img_icon = (ImageView) row.findViewById(R.id.imgIcon);
             img_icon.setBackgroundResource(imagelist[position]);
             img_icon.setScaleType(ImageView.ScaleType.CENTER_INSIDE);
-         */   title.setText(leftSliderData[position]);
+            title.setText(leftSliderData[position]);
             title.setTextSize(20);
             return row;
         }

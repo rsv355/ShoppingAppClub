@@ -35,6 +35,7 @@ public class SplashPage extends ActionBarActivity {
 
 
 
+
     @Override
     protected void onResume() {
         super.onResume();

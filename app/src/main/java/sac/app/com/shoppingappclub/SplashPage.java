@@ -33,13 +33,15 @@ public class SplashPage extends ActionBarActivity {
 
     }
 
+
+
     @Override
     protected void onResume() {
         super.onResume();
 
         if(checkInternet()){
 
-             new CountDownTimer(4000,4000) {
+             new CountDownTimer(2500,1000) {
                 @Override
                 public void onTick(long millisUntilFinished) {
 
@@ -47,9 +49,9 @@ public class SplashPage extends ActionBarActivity {
 
                 @Override
                 public void onFinish() {
-                 /*   Intent i  = new Intent(SplashPage.this,MyDrawerActivity.class);
+                    Intent i  = new Intent(SplashPage.this,MyDrawerActivity.class);
                     startActivity(i);
-                    finish();*/
+                    finish();
                 }
             }.start();
 

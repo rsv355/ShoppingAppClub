@@ -15,6 +15,7 @@ import android.widget.Toast;
 
 import Shimmer.Shimmer.*;
 
+
 public class SplashPage extends ActionBarActivity {
 
     @Override

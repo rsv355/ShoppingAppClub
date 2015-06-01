@@ -6,22 +6,32 @@ package sac.app.com.shoppingappclub;
 
 
 import android.app.Activity;
+import android.content.Context;
 import android.content.Intent;
+import android.graphics.BitmapFactory;
 import android.graphics.Typeface;
 import android.net.Uri;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentTransaction;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.BaseAdapter;
+import android.widget.GridView;
+import android.widget.ImageView;
 import android.widget.TextView;
 
+import com.bumptech.glide.Glide;
 
-public class HomeFragment extends Fragment implements View.OnClickListener{
+import java.util.ArrayList;
 
 
+public class HomeFragment extends Fragment {
+
+    GridView gridView;
 
     public HomeFragment() {
         // Required empty public constructor
@@ -40,48 +50,29 @@ public class HomeFragment extends Fragment implements View.OnClickListener{
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
         View view = inflater.inflate(R.layout.fragment_blank, container, false);
-        TextView txt1 =  (TextView)view.findViewById(R.id.txt1);
-        TextView txt2 =  (TextView)view.findViewById(R.id.txt2);
-        TextView txt3 =  (TextView)view.findViewById(R.id.txt3);
-        TextView txt4 =  (TextView)view.findViewById(R.id.txt4);
-        TextView txt5 =  (TextView)view.findViewById(R.id.txt5);
 
-        TextView txt6 =  (TextView)view.findViewById(R.id.txt6);
-        TextView txt7 =  (TextView)view.findViewById(R.id.txt7);
-        TextView txt8 =  (TextView)view.findViewById(R.id.txt8);
-        TextView txt9 =  (TextView)view.findViewById(R.id.txt9);
-        TextView txt10 =  (TextView)view.findViewById(R.id.txt10);
+        gridView = (GridView)view.findViewById(R.id.gridView);
 
-        TextView txt11 =  (TextView)view.findViewById(R.id.txt11);
-        TextView txt12 =  (TextView)view.findViewById(R.id.txt12);
+        ArrayList<String> img = new ArrayList<>();
+        img.add("flipkart");
+        img.add("amazon");
+        img.add("sanpdeal");
+        img.add("paytm");
+
+        img.add("myntra");
+        img.add("jabong");
+        img.add("justeat");
+        img.add("greendust");
 
 
-        Typeface tf = Typeface.createFromAsset(getActivity().getAssets(),"fonts/f1.ttf");
-        txt1.setTypeface(tf,Typeface.BOLD);
-        txt2.setTypeface(tf,Typeface.BOLD);
-        txt3.setTypeface(tf,Typeface.BOLD);
-        txt4.setTypeface(tf,Typeface.BOLD);
-        txt5.setTypeface(tf,Typeface.BOLD);
-        txt6.setTypeface(tf,Typeface.BOLD);
-        txt7.setTypeface(tf,Typeface.BOLD);
-        txt8.setTypeface(tf,Typeface.BOLD);
-        txt9.setTypeface(tf,Typeface.BOLD);
-        txt10.setTypeface(tf,Typeface.BOLD);
-        txt11.setTypeface(tf,Typeface.BOLD);
-        txt12.setTypeface(tf, Typeface.BOLD);
+        img.add("yepme");
+        img.add("ticketgoose");
+        img.add("babyoye");
+        img.add("freecharge");
 
-        txt1.setOnClickListener(this);
-        txt2.setOnClickListener(this);
-        txt3.setOnClickListener(this);
-        txt4.setOnClickListener(this);
-        txt5.setOnClickListener(this);
-        txt6.setOnClickListener(this);
-        txt7.setOnClickListener(this);
-        txt8.setOnClickListener(this);
-        txt9.setOnClickListener(this);
-        txt10.setOnClickListener(this);
-        txt11.setOnClickListener(this);
-        txt12.setOnClickListener(this);
+        CustomImageAdapter adp = new CustomImageAdapter(getActivity(),img);
+        gridView.setAdapter(adp);
+
 
 
 
@@ -89,8 +80,64 @@ public class HomeFragment extends Fragment implements View.OnClickListener{
         return view;
     }
 
+    class CustomImageAdapter extends BaseAdapter {
+        LayoutInflater layoutInflator;
+        private Context ctx;
+        ArrayList<String>  images;
+        public CustomImageAdapter(Context ctx,ArrayList<String> img){
+            this.ctx = ctx;
+            this.images=img;
+        }
 
-    @Override
+        @Override
+        public int getCount() {
+            return images.size();
+        }
+
+        @Override
+        public Object getItem(int position) {
+            return 0;
+        }
+
+        @Override
+        public long getItemId(int position) {
+            return position;
+        }
+
+        @Override
+        public View getView(int position, View convertView, ViewGroup parent) {
+            layoutInflator = (LayoutInflater) ctx.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
+            View view = convertView;
+            view = layoutInflator.inflate(R.layout.grid_item, parent, false);
+
+            ImageView imageView = (ImageView)view.findViewById(R.id.imgIcon);
+            imageView.setScaleType(ImageView.ScaleType.CENTER_INSIDE);
+
+            //TextView txtSubtitle= (TextView) view.findViewById(R.id.txtSubtitle);
+            //txtSubtitle.setText(nutritionData.get(position).name);
+
+            // Log.e("id",nutritionData.get(position).nutritional_guideline_id);
+
+
+            BitmapFactory.Options options = new BitmapFactory.Options();
+            options.inSampleSize = 8;
+
+            String imgName = images.get(position);
+            int resId = ctx.getResources().getIdentifier(imgName, "drawable", ctx.getPackageName());
+
+            Glide.with(ctx)
+                    .load(resId)
+                    .into(imageView);
+            //imageView.setImageResource(R.mipmap.ic_launcher);
+
+            return view;
+
+
+        }
+    }
+
+
+  /*  @Override
     public void onClick(View view) {
 
         switch (view.getId()){
@@ -132,7 +179,7 @@ public class HomeFragment extends Fragment implements View.OnClickListener{
                 callWebview(6);
                 break;
         }
-    }
+    }*/
 
 
     void callWebview(int pos){

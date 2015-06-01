@@ -59,7 +59,7 @@ class ListAdapter extends BaseAdapter {
 
 //        Typeface tf = Typeface.createFromAsset(ctx.getAssets(),"fonts/f1.ttf");
    //     txt.setTypeface(tf,Typeface.BOLD);
-       txt.setText(value.names.get(position));
+        txt.setText(value.names.get(position));
 
         BitmapFactory.Options options = new BitmapFactory.Options();
         options.inSampleSize = 8;

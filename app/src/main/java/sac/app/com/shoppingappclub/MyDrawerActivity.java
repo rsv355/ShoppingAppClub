@@ -38,7 +38,7 @@ public class MyDrawerActivity extends ActionBarActivity {
     private ActionBarDrawerToggle drawerToggle;
     private ListView leftDrawerList;
     private ArrayAdapter<String> navigationDrawerAdapter;
-    private String[] leftSliderData = {"Home", "More links", "About Us", "Contact Us", "Share App", "Rate Us"};
+    private String[] leftSliderData = {"Home", "All Stores", "About Us", "Contact Us", "Share App", "Rate Us"};
 
     private int[] imagelist = {R.drawable.ic_action_home,
             R.drawable.morelinks,

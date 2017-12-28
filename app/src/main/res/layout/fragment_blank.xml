@@ -2,7 +2,17 @@
     xmlns:tools="http://schemas.android.com/tools" android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".HomeActivity">
+
+       <EditText
+           android:layout_marginRight="16dp"
+           android:layout_marginLeft="16dp"
+           android:layout_marginTop="16dp"
+           android:id="@+id/etSearchBox"
+           android:layout_width="match_parent"
+           android:layout_height="wrap_content" />
+
         <GridView
+            android:layout_below="@+id/etSearchBox"
             android:layout_above="@+id/txtBottom"
             android:scrollbars="none"
             android:numColumns="2"
@@ -23,7 +33,7 @@
             android:id="@+id/txtBottom"
             android:text="All Stores A-Z"
             android:textColor="#fff"
-            android:background="#683503"
+            android:background="#fc922a"
             android:layout_width="match_parent"
             android:layout_height="wrap_content" />
 </RelativeLayout>

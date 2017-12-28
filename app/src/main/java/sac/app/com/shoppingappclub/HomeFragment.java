@@ -15,11 +15,16 @@ import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentTransaction;
+import android.text.Editable;
+import android.text.TextWatcher;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
+import android.widget.EditText;
+import android.widget.Filter;
+import android.widget.Filterable;
 import android.widget.GridView;
 import android.widget.ImageView;
 import android.widget.TextView;
@@ -30,7 +35,7 @@ import java.util.ArrayList;
 
 
 public class HomeFragment extends Fragment {
-
+    EditText etSearchBox;
     GridView gridView;
     TextView txtBottom;
     public HomeFragment() {
@@ -51,6 +56,7 @@ public class HomeFragment extends Fragment {
         // Inflate the layout for this fragment
         View view = inflater.inflate(R.layout.fragment_blank, container, false);
 
+        etSearchBox = (EditText)view.findViewById(R.id.etSearchBox);
         gridView = (GridView)view.findViewById(R.id.gridView);
         txtBottom = (TextView)view.findViewById(R.id.txtBottom);
         txtBottom.setOnClickListener(new View.OnClickListener() {
@@ -65,10 +71,11 @@ public class HomeFragment extends Fragment {
         });
 
 
+
         ArrayList<String> img = new ArrayList<>();
         img.add("flipkart");
         img.add("amazon");
-        img.add("sanpdeal");
+        img.add("snapdeal");
         img.add("paytm");
 
         img.add("myntra");
@@ -82,28 +89,46 @@ public class HomeFragment extends Fragment {
         img.add("babyoye");
         img.add("freecharge");
 
-        CustomImageAdapter adp = new CustomImageAdapter(getActivity(),img);
+        final CustomImageAdapter adp = new CustomImageAdapter(getActivity(),img);
         gridView.setAdapter(adp);
 
 
+        etSearchBox.addTextChangedListener(new TextWatcher() {
+            @Override
+            public void beforeTextChanged(CharSequence charSequence, int i, int i1, int i2) {
 
+            }
 
+            @Override
+            public void onTextChanged(CharSequence charSequence, int i, int i1, int i2) {
+
+            }
+
+            @Override
+            public void afterTextChanged(Editable editable) {
+                adp.getFilter().filter(editable.toString());
+                adp.notifyDataSetChanged();
+            }
+        });
 
         return view;
     }
 
-    class CustomImageAdapter extends BaseAdapter {
+    class CustomImageAdapter extends BaseAdapter implements Filterable{
         LayoutInflater layoutInflator;
         private Context ctx;
         ArrayList<String>  images;
+        private ArrayList<String> mStringFilterList;
+
         public CustomImageAdapter(Context ctx,ArrayList<String> img){
             this.ctx = ctx;
             this.images=img;
+            this.mStringFilterList=img;
         }
 
         @Override
         public int getCount() {
-            return images.size();
+            return mStringFilterList.size();
         }
 
         @Override
@@ -134,7 +159,7 @@ public class HomeFragment extends Fragment {
             BitmapFactory.Options options = new BitmapFactory.Options();
             options.inSampleSize = 8;
 
-            String imgName = images.get(position);
+            String imgName = mStringFilterList.get(position);
             int resId = ctx.getResources().getIdentifier(imgName, "drawable", ctx.getPackageName());
 
             Glide.with(ctx)
@@ -145,6 +170,41 @@ public class HomeFragment extends Fragment {
             return view;
 
 
+        }
+
+        @Override
+        public Filter getFilter() {
+            return new Filter() {
+                @Override
+                protected FilterResults performFiltering(CharSequence charSequence) {
+                    String charString = charSequence.toString();
+                    if (charString.equalsIgnoreCase("0")) {
+                        mStringFilterList = images;
+                    } else {
+                        ArrayList<String> filteredList = new ArrayList<>();
+                        for (String row : images) {
+
+                            // name match condition. this might differ depending on your requirement
+                            // here we are looking for name or phone number match
+                            if (row.toString().contains(charSequence.toString())) {
+                                filteredList.add(row);
+                            }
+                        }
+
+                        mStringFilterList = filteredList;
+                    }
+
+                    FilterResults filterResults = new FilterResults();
+                    filterResults.values = mStringFilterList;
+                    return filterResults;
+                }
+
+                @Override
+                protected void publishResults(CharSequence charSequence, FilterResults filterResults) {
+                    mStringFilterList = (ArrayList<String>) filterResults.values;
+                    notifyDataSetChanged();
+                }
+            };
         }
     }
 

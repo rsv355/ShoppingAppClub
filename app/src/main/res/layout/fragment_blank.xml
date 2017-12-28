@@ -1,9 +1,10 @@
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools" android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical"
-    tools:context="com.example.android.mydrawer.BlankFragment">
+    tools:context=".HomeActivity">
         <GridView
+            android:layout_above="@+id/txtBottom"
+            android:scrollbars="none"
             android:numColumns="2"
             android:id="@+id/gridView"
             android:padding="16dp"
@@ -11,4 +12,18 @@
             android:layout_margin="16dp"
             android:layout_width="match_parent"
             android:layout_height="match_parent"></GridView>
-</LinearLayout>
+
+
+        <TextView
+
+            android:textSize="20dp"
+            android:gravity="center"
+            android:padding="12dp"
+            android:layout_alignParentBottom="true"
+            android:id="@+id/txtBottom"
+            android:text="All Stores A-Z"
+            android:textColor="#fff"
+            android:background="#683503"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" />
+</RelativeLayout>

@@ -32,7 +32,7 @@ import java.util.ArrayList;
 public class HomeFragment extends Fragment {
 
     GridView gridView;
-
+    TextView txtBottom;
     public HomeFragment() {
         // Required empty public constructor
     }
@@ -52,6 +52,18 @@ public class HomeFragment extends Fragment {
         View view = inflater.inflate(R.layout.fragment_blank, container, false);
 
         gridView = (GridView)view.findViewById(R.id.gridView);
+        txtBottom = (TextView)view.findViewById(R.id.txtBottom);
+        txtBottom.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                FragmentManager manager1 = getActivity().getSupportFragmentManager();
+                FragmentTransaction ft1 = manager1.beginTransaction();
+                ft1.replace(R.id.main_container, new SubFragment());
+                ft1.addToBackStack("");
+                ft1.commit();
+            }
+        });
+
 
         ArrayList<String> img = new ArrayList<>();
         img.add("flipkart");

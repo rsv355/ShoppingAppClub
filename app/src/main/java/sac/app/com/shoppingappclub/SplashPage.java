@@ -13,7 +13,6 @@ import android.util.Log;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import Shimmer.Shimmer.*;
 
 
 public class SplashPage extends ActionBarActivity {
@@ -23,14 +22,13 @@ public class SplashPage extends ActionBarActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_splash);
 
-        Shimmer.ShimmerTextView txtTitle = (Shimmer.ShimmerTextView)findViewById(R.id.txt);
+        TextView txtTitle = (TextView)findViewById(R.id.txt);
 
         Typeface tf = Typeface.createFromAsset(getAssets(),"fonts/f1.ttf");
         txtTitle.setTypeface(tf, Typeface.BOLD);
         txtTitle.setText(getString(R.string.app_name));
 
-        Shimmer.Shimmer shimmer = new Shimmer.Shimmer();
-        shimmer.start(txtTitle);
+
 
     }
 

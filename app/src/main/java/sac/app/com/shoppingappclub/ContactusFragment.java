@@ -37,7 +37,8 @@ public class ContactusFragment extends Fragment {
         // Inflate the layout for this fragment
         View view = inflater.inflate(R.layout.contact, container, false);
         TextView txt = (TextView)view.findViewById(R.id.txt);
-        txt.setText("Contact us details will be there");
+        txt.setText("Hi, Thank for installing our App. You can reach us for any technical queries or partnership queries at\n" +
+                "\n\nsudiptaenterprises@gmail.com\n");
 
 
         Animation anim = AnimationUtils.loadAnimation(getActivity(), R.anim.translate);

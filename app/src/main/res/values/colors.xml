@@ -1,6 +1,7 @@
 <resources>
 
     <color name="primaryColor">#f1c40f</color>
+    <color name="accentColor">#B26B24</color>
 
 
     <color name="theme_primary">#2977AC</color>

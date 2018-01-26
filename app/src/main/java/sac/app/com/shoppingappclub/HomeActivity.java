@@ -9,9 +9,11 @@ import android.widget.AdapterView;
 import com.twotoasters.jazzylistview.JazzyListView;
 import com.twotoasters.jazzylistview.effects.CurlEffect;
 
+import java.util.ArrayList;
+
 
 public class HomeActivity extends ActionBarActivity {
-   Data dataobj;
+    ArrayList<ShopModel> dataobj;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -39,7 +41,15 @@ public class HomeActivity extends ActionBarActivity {
     }
 
     private void filldata(){
-        dataobj = new Data();
+        try{
+            dataobj = new ArrayList<>();
+            DatabaseHandler mDatabaseHandler = new DatabaseHandler(this);
+            mDatabaseHandler.openDataBase();
+            dataobj = mDatabaseHandler.getAllShopItem(this);
+
+            mDatabaseHandler.close();
+        }catch (Exception e){}
+
 
     }
 }

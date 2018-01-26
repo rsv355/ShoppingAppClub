@@ -15,7 +15,7 @@ import java.util.ArrayList;
 
 
 public class MainActivity extends ActionBarActivity {
-   Data dataobj;
+    ArrayList<ShopModel> dataobj;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -43,7 +43,15 @@ public class MainActivity extends ActionBarActivity {
     }
 
     private void filldata(){
-        dataobj = new Data();
+        try{
+            dataobj = new ArrayList<>();
+            DatabaseHandler mDatabaseHandler = new DatabaseHandler(this);
+            mDatabaseHandler.openDataBase();
+            dataobj = mDatabaseHandler.getAllShopItem(this);
+
+            mDatabaseHandler.close();
+        }catch (Exception e){}
+
 
     }
 }

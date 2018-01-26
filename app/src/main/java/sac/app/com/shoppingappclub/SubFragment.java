@@ -20,9 +20,11 @@ import android.widget.TextView;
 import com.twotoasters.jazzylistview.JazzyListView;
 import com.twotoasters.jazzylistview.effects.CurlEffect;
 
+import java.util.ArrayList;
+
 
 public class SubFragment extends Fragment {
-    Data dataobj;
+    ArrayList<ShopModel> dataobj;
 
 
     public SubFragment() {
@@ -59,7 +61,7 @@ public class SubFragment extends Fragment {
                 Data obj = new Data();
 
                 Bundle bnd = new Bundle();
-                bnd.putString("url", obj.links.get(pos));
+                bnd.putString("url", dataobj.get(pos).Url);
 
                 FragmentManager manager1 = getActivity().getSupportFragmentManager();
                 FragmentTransaction ft1 = manager1.beginTransaction();
@@ -82,7 +84,15 @@ public class SubFragment extends Fragment {
 
 
     private void filldata(){
-        dataobj = new Data();
+        try{
+            dataobj = new ArrayList<>();
+            DatabaseHandler mDatabaseHandler = new DatabaseHandler(getActivity());
+            mDatabaseHandler.openDataBase();
+            dataobj = mDatabaseHandler.getAllShopItem(getActivity());
+
+            mDatabaseHandler.close();
+        }catch (Exception e){}
+
 
     }
 }

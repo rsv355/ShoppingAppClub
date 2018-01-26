@@ -167,7 +167,7 @@ public class MyDrawerActivity extends ActionBarActivity {
                         break;
                     case 5:
 
-                        final String appPackageName4 = "sac.app.com.shoppingappclub"; // getPackageName() from Context or Activity object
+                        final String appPackageName4 = "com.shoppingappclub"; // getPackageName() from Context or Activity object
                         try {
                             startActivity(new Intent(Intent.ACTION_VIEW, Uri.parse("market://details?id=" + appPackageName4)));
                         } catch (android.content.ActivityNotFoundException anfe) {
@@ -176,7 +176,7 @@ public class MyDrawerActivity extends ActionBarActivity {
                         break;
 
                     case 4:
-                        String text = "Please Check out this amazing Indian Shopping Club app , \n https://play.google.com/store/apps/details?id=sac.app.com.shoppingappclub";
+                        String text = "Please Check out this amazing Indian Shopping Club app , \n https://play.google.com/store/apps/details?id=com.shoppingappclub";
 
                         Intent sharingIntent = new Intent(Intent.ACTION_SEND);
                         sharingIntent.setType("text/plain");

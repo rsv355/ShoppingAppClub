@@ -9,7 +9,7 @@ android {
     }
 
     defaultConfig {
-        applicationId "sac.app.com.shoppingappclub"
+        applicationId "com.shoppingappclub"
         minSdkVersion 15
         targetSdkVersion 22
         versionCode 1

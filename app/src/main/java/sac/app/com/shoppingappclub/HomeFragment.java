@@ -38,6 +38,8 @@ public class HomeFragment extends Fragment {
     EditText etSearchBox;
     GridView gridView;
     TextView txtBottom;
+    DatabaseHandler mDatabaseHandler;
+
     public HomeFragment() {
         // Required empty public constructor
     }
@@ -56,9 +58,12 @@ public class HomeFragment extends Fragment {
         // Inflate the layout for this fragment
         View view = inflater.inflate(R.layout.fragment_blank, container, false);
 
-        etSearchBox = (EditText)view.findViewById(R.id.etSearchBox);
-        gridView = (GridView)view.findViewById(R.id.gridView);
-        txtBottom = (TextView)view.findViewById(R.id.txtBottom);
+
+        mDatabaseHandler = new DatabaseHandler(getActivity());
+
+        etSearchBox = (EditText) view.findViewById(R.id.etSearchBox);
+        gridView = (GridView) view.findViewById(R.id.gridView);
+        txtBottom = (TextView) view.findViewById(R.id.txtBottom);
         txtBottom.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -71,25 +76,19 @@ public class HomeFragment extends Fragment {
         });
 
 
+        ArrayList<ShopModel> DBM = new ArrayList<>();
+        try {
+            DatabaseHandler mDatabaseHandler = new DatabaseHandler(getActivity());
+            mDatabaseHandler.openDataBase();
+            DBM = mDatabaseHandler.getAllShopItem(getActivity());
 
-        ArrayList<String> img = new ArrayList<>();
-        img.add("flipkart");
-        img.add("amazon");
-        img.add("snapdeal");
-        img.add("paytm");
+            mDatabaseHandler.close();
 
-        img.add("myntra");
-        img.add("jabong");
-        img.add("justeat");
-        img.add("greendust");
+        } catch (Exception e) {
+        }
 
 
-        img.add("yepme");
-        img.add("ticketgoose");
-        img.add("babyoye");
-        img.add("freecharge");
-
-        final CustomImageAdapter adp = new CustomImageAdapter(getActivity(),img);
+        final CustomImageAdapter adp = new CustomImageAdapter(getActivity(), DBM);
         gridView.setAdapter(adp);
 
 
@@ -114,16 +113,16 @@ public class HomeFragment extends Fragment {
         return view;
     }
 
-    class CustomImageAdapter extends BaseAdapter implements Filterable{
+    class CustomImageAdapter extends BaseAdapter implements Filterable {
         LayoutInflater layoutInflator;
         private Context ctx;
-        ArrayList<String>  images;
-        private ArrayList<String> mStringFilterList;
+        ArrayList<ShopModel> images;
+        private ArrayList<ShopModel> mStringFilterList;
 
-        public CustomImageAdapter(Context ctx,ArrayList<String> img){
+        public CustomImageAdapter(Context ctx, ArrayList<ShopModel> img) {
             this.ctx = ctx;
-            this.images=img;
-            this.mStringFilterList=img;
+            this.images = img;
+            this.mStringFilterList = img;
         }
 
         @Override
@@ -147,7 +146,7 @@ public class HomeFragment extends Fragment {
             View view = convertView;
             view = layoutInflator.inflate(R.layout.grid_item, parent, false);
 
-            ImageView imageView = (ImageView)view.findViewById(R.id.imgIcon);
+            ImageView imageView = (ImageView) view.findViewById(R.id.imgIcon);
             imageView.setScaleType(ImageView.ScaleType.CENTER_INSIDE);
 
             //TextView txtSubtitle= (TextView) view.findViewById(R.id.txtSubtitle);
@@ -155,17 +154,24 @@ public class HomeFragment extends Fragment {
 
             // Log.e("id",nutritionData.get(position).nutritional_guideline_id);
 
+            try {
+                BitmapFactory.Options options = new BitmapFactory.Options();
+                options.inSampleSize = 8;
 
-            BitmapFactory.Options options = new BitmapFactory.Options();
-            options.inSampleSize = 8;
+                String imgName = mStringFilterList.get(position).Image;
+                Log.e("imageName", imgName);
 
-            String imgName = mStringFilterList.get(position);
-            int resId = ctx.getResources().getIdentifier(imgName, "drawable", ctx.getPackageName());
+                if (imgName != "") {
+                    int resId = ctx.getResources().getIdentifier(imgName, "drawable", ctx.getPackageName());
 
-            Glide.with(ctx)
-                    .load(resId)
-                    .into(imageView);
-            //imageView.setImageResource(R.mipmap.ic_launcher);
+                    Glide.with(ctx)
+                            .load(resId)
+                            .into(imageView);
+                } else {
+                    imageView.setImageResource(R.mipmap.ic_launcher);
+                }
+            } catch (Exception e) {
+            }       //imageView.setImageResource(R.mipmap.ic_launcher);
 
             return view;
 
@@ -181,12 +187,12 @@ public class HomeFragment extends Fragment {
                     if (charString.equalsIgnoreCase("0")) {
                         mStringFilterList = images;
                     } else {
-                        ArrayList<String> filteredList = new ArrayList<>();
-                        for (String row : images) {
+                        ArrayList<ShopModel> filteredList = new ArrayList<>();
+                        for (ShopModel row : images) {
 
                             // name match condition. this might differ depending on your requirement
                             // here we are looking for name or phone number match
-                            if (row.toString().contains(charSequence.toString())) {
+                            if (row.Name.toLowerCase().contains(charSequence.toString().toLowerCase())) {
                                 filteredList.add(row);
                             }
                         }
@@ -201,7 +207,7 @@ public class HomeFragment extends Fragment {
 
                 @Override
                 protected void publishResults(CharSequence charSequence, FilterResults filterResults) {
-                    mStringFilterList = (ArrayList<String>) filterResults.values;
+                    mStringFilterList = (ArrayList<ShopModel>) filterResults.values;
                     notifyDataSetChanged();
                 }
             };
@@ -254,7 +260,7 @@ public class HomeFragment extends Fragment {
     }*/
 
 
-    void callWebview(int pos){
+    void callWebview(int pos) {
         Data obj = new Data();
       /*  Intent ii = new Intent(getActivity(), webview.class);
         ii.putExtra("url", obj.links.get(pos));

@@ -141,7 +141,7 @@ public class HomeFragment extends Fragment {
         }
 
         @Override
-        public View getView(int position, View convertView, ViewGroup parent) {
+        public View getView(final int position, View convertView, ViewGroup parent) {
             layoutInflator = (LayoutInflater) ctx.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
             View view = convertView;
             view = layoutInflator.inflate(R.layout.grid_item, parent, false);
@@ -167,6 +167,13 @@ public class HomeFragment extends Fragment {
                     Glide.with(ctx)
                             .load(resId)
                             .into(imageView);
+
+                    imageView.setOnClickListener(new View.OnClickListener() {
+                        @Override
+                        public void onClick(View view) {
+                            openWebView(mStringFilterList.get(position).Url);
+                        }
+                    });
                 } else {
                     imageView.setImageResource(R.mipmap.ic_launcher);
                 }
@@ -176,6 +183,27 @@ public class HomeFragment extends Fragment {
             return view;
 
 
+        }
+
+
+        void openWebView(String url) {
+            Data obj = new Data();
+      /*  Intent ii = new Intent(getActivity(), webview.class);
+        ii.putExtra("url", obj.links.get(pos));
+        startActivity(ii);*/
+
+            Bundle bnd = new Bundle();
+            bnd.putString("url", url);
+
+            FragmentManager manager1 = getActivity().getSupportFragmentManager();
+            FragmentTransaction ft1 = manager1.beginTransaction();
+
+            WebViewFragment web = new WebViewFragment();
+            web.setArguments(bnd);
+            ft1.replace(R.id.main_container, web);
+
+            ft1.addToBackStack("");
+            ft1.commit();
         }
 
         @Override
@@ -258,6 +286,7 @@ public class HomeFragment extends Fragment {
                 break;
         }
     }*/
+
 
 
     void callWebview(int pos) {

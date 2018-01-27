@@ -111,7 +111,28 @@ public class DatabaseHandler extends SQLiteOpenHelper {
 
     }
 
+    public ArrayList<ShopModel> getHomeShopItem(Context ctx) {
+        ArrayList<ShopModel> MENU = new ArrayList<>();
+        SQLiteDatabase sql = this.getReadableDatabase();
+        String query = "SELECT * FROM Shop where Image!='' ANd Pos!='' Order By Pos";
+        Cursor c = sql.rawQuery(query, null);
 
+        while (c.moveToNext()) {
+            ShopModel item = new ShopModel(c.getString(c.getColumnIndexOrThrow("id")),
+                    c.getString(c.getColumnIndexOrThrow("Name")),
+                    c.getString(c.getColumnIndexOrThrow("Image")),
+                    c.getString(c.getColumnIndexOrThrow("Url")));
+
+
+            //int resourceID =
+            //        ctx.getResources().getIdentifier(c.getString(c.getColumnIndexOrThrow("ImageRes")), "drawable",ctx.getPackageName());
+
+            //item.setImageResource(resourceID);
+            MENU.add(item);
+        }
+        c.close();
+        return MENU;
+    }
 
 
     public ArrayList<ShopModel> getAllShopItem(Context ctx) {

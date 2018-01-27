@@ -80,7 +80,7 @@ public class HomeFragment extends Fragment {
         try {
             DatabaseHandler mDatabaseHandler = new DatabaseHandler(getActivity());
             mDatabaseHandler.openDataBase();
-            DBM = mDatabaseHandler.getAllShopItem(getActivity());
+            DBM = mDatabaseHandler.getHomeShopItem(getActivity());
 
             mDatabaseHandler.close();
 

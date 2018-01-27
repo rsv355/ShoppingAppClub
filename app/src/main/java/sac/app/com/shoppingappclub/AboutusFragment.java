@@ -43,7 +43,8 @@ public class AboutusFragment extends Fragment {
         // Inflate the layout for this fragment
         View view = inflater.inflate(R.layout.abotus, container, false);
         TextView txt = (TextView)view.findViewById(R.id.txt);
-        txt.setText("About us details will be there");
+        txt.setText("This App is exclusively owned by Sudipta Enterprises where you can reach us at  supdiptaenterprises@gmail for any queries or concern. \n" +
+                "We are upgrading to its next version and soon, we will update it in few days.");
 
 
         Animation anim = AnimationUtils.loadAnimation(getActivity(), R.anim.translate);

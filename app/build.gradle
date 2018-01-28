@@ -1,7 +1,7 @@
 apply plugin: 'com.android.application'
 
 android {
-    compileSdkVersion 22
+    compileSdkVersion 23
     buildToolsVersion '25.0.0'
 
     aaptOptions {
@@ -11,7 +11,7 @@ android {
     defaultConfig {
         applicationId "com.shoppingappclub"
         minSdkVersion 15
-        targetSdkVersion 22
+        targetSdkVersion 23
         versionCode 1
         versionName "1.0"
     }
@@ -21,12 +21,26 @@ android {
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
         }
     }
+
+
+    allprojects {
+        repositories {
+            maven { url "https://jitpack.io" }
+        }
+    }
 }
 
 dependencies {
     compile fileTree(dir: 'libs', include: ['*.jar'])
     compile 'com.android.support:appcompat-v7:22.1.1'
+
+    compile "com.android.support:design:22.1.1"
+
     compile 'com.twotoasters.jazzylistview:library:1.2.1'
     compile 'com.github.bumptech.glide:glide:3.5.1'
 
+
+    compile 'com.github.delight-im:Android-AdvancedWebView:v3.0.0'
+    compile 'com.github.fobid:webviewer:0.70.5'
+    compile 'com.thefinestartist:finestwebview:1.2.7'
 }

@@ -92,12 +92,28 @@
       <excludeFolder url="file://$MODULE_DIR$/build/outputs" />
       <excludeFolder url="file://$MODULE_DIR$/build/tmp" />
     </content>
-    <orderEntry type="jdk" jdkName="Android API 22 Platform" jdkType="Android SDK" />
+    <orderEntry type="jdk" jdkName="Android API 23 Platform" jdkType="Android SDK" />
     <orderEntry type="sourceFolder" forTests="false" />
-    <orderEntry type="library" exported="" name="com.android.support:support-v4-22.1.1" level="project" />
-    <orderEntry type="library" exported="" name="com.android.support:support-annotations:22.1.1@jar" level="project" />
+    <orderEntry type="library" exported="" name="com.thefinestartist:utils-0.9.0" level="project" />
+    <orderEntry type="library" exported="" name="com.github.delight-im:Android-AdvancedWebView-v3.0.0" level="project" />
+    <orderEntry type="library" exported="" name="com.android.support:recyclerview-v7-24.2.1" level="project" />
+    <orderEntry type="library" exported="" name="com.android.support:support-annotations:24.2.1@jar" level="project" />
+    <orderEntry type="library" exported="" name="com.thefinestartist:annotations:0.9.0@jar" level="project" />
+    <orderEntry type="library" exported="" name="com.thefinestartist:finestwebview-1.2.7" level="project" />
+    <orderEntry type="library" exported="" name="com.android.support:support-media-compat-24.2.1" level="project" />
+    <orderEntry type="library" exported="" name="com.nineoldandroids:library:2.4.0@jar" level="project" />
+    <orderEntry type="library" exported="" name="com.android.support:support-fragment-24.2.1" level="project" />
+    <orderEntry type="library" exported="" name="com.android.support:support-v4-24.2.1" level="project" />
+    <orderEntry type="library" exported="" name="com.android.support:support-vector-drawable-24.2.1" level="project" />
+    <orderEntry type="library" exported="" name="com.android.support:support-core-utils-24.2.1" level="project" />
+    <orderEntry type="library" exported="" name="com.github.fobid:webviewer-0.70.5" level="project" />
+    <orderEntry type="library" exported="" name="com.android.support:animated-vector-drawable-24.2.1" level="project" />
+    <orderEntry type="library" exported="" name="com.android.support:cardview-v7-24.2.1" level="project" />
     <orderEntry type="library" exported="" name="com.github.bumptech.glide:glide:3.5.1@jar" level="project" />
     <orderEntry type="library" exported="" name="com.twotoasters.jazzylistview:library-1.2.1" level="project" />
-    <orderEntry type="library" exported="" name="com.android.support:appcompat-v7-22.1.1" level="project" />
+    <orderEntry type="library" exported="" name="com.android.support:design-24.2.1" level="project" />
+    <orderEntry type="library" exported="" name="com.android.support:support-core-ui-24.2.1" level="project" />
+    <orderEntry type="library" exported="" name="com.android.support:appcompat-v7-24.2.1" level="project" />
+    <orderEntry type="library" exported="" name="com.android.support:support-compat-24.2.1" level="project" />
   </component>
 </module>

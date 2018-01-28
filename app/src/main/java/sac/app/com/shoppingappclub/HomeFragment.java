@@ -12,6 +12,7 @@ import android.graphics.BitmapFactory;
 import android.graphics.Typeface;
 import android.net.Uri;
 import android.os.Bundle;
+import android.support.design.widget.AppBarLayout;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentTransaction;
@@ -30,6 +31,8 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.bumptech.glide.Glide;
+import com.tfc.webviewer.ui.WebViewerActivity;
+import com.thefinestartist.finestwebview.FinestWebView;
 
 import java.util.ArrayList;
 
@@ -187,12 +190,29 @@ public class HomeFragment extends Fragment {
 
 
         void openWebView(String url) {
-            Data obj = new Data();
-      /*  Intent ii = new Intent(getActivity(), webview.class);
-        ii.putExtra("url", obj.links.get(pos));
+
+
+            Intent intent = new Intent(getActivity(), WebViewerActivity.class);
+            intent.putExtra(WebViewerActivity.EXTRA_URL, url);
+            startActivity(intent);
+
+
+        /*   new FinestWebView.Builder(getActivity())
+                    .toolbarScrollFlags(AppBarLayout.LayoutParams.SCROLL_FLAG_SCROLL | AppBarLayout.LayoutParams.SCROLL_FLAG_ENTER_ALWAYS)
+                    .gradientDivider(false)
+                    .iconDisabledColorRes(R.color.gray)
+                    .progressBarHeight(3)
+                    .progressBarColorRes(R.color.primaryColor)
+                    .backPressToClose(false)
+                    .setCustomAnimations(R.anim.activity_open_enter, R.anim.activity_open_exit, R.anim.activity_close_enter, R.anim.activity_close_exit)
+                    .show(url);*/
+
+
+         /*   Intent ii = new Intent(getActivity(), WebViewActivity.class);
+        ii.putExtra("url", url);
         startActivity(ii);*/
 
-            Bundle bnd = new Bundle();
+            /*Bundle bnd = new Bundle();
             bnd.putString("url", url);
 
             FragmentManager manager1 = getActivity().getSupportFragmentManager();
@@ -203,7 +223,7 @@ public class HomeFragment extends Fragment {
             ft1.replace(R.id.main_container, web);
 
             ft1.addToBackStack("");
-            ft1.commit();
+            ft1.commit();*/
         }
 
         @Override

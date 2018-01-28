@@ -17,6 +17,7 @@ import android.view.ViewGroup;
 import android.widget.AdapterView;
 import android.widget.TextView;
 
+import com.tfc.webviewer.ui.WebViewerActivity;
 import com.twotoasters.jazzylistview.JazzyListView;
 import com.twotoasters.jazzylistview.effects.CurlEffect;
 
@@ -60,7 +61,16 @@ public class SubFragment extends Fragment {
             public void onItemClick(AdapterView<?> adapterView, View view, int pos, long l) {
                 Data obj = new Data();
 
-                Bundle bnd = new Bundle();
+
+
+
+                Intent intent = new Intent(getActivity(), WebViewerActivity.class);
+                intent.putExtra(WebViewerActivity.EXTRA_URL, dataobj.get(pos).Url);
+                startActivity(intent);
+
+                /*
+
+                 Bundle bnd = new Bundle();
                 bnd.putString("url", dataobj.get(pos).Url);
 
                 FragmentManager manager1 = getActivity().getSupportFragmentManager();
@@ -71,7 +81,7 @@ public class SubFragment extends Fragment {
                 ft1.replace(R.id.main_container, web);
 
                 ft1.addToBackStack("");
-                ft1.commit();
+                ft1.commit();*/
 
               /*  Intent ii = new Intent(getActivity(), webview.class);
                 ii.putExtra("url", obj.links.get(pos));

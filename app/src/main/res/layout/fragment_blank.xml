@@ -4,6 +4,7 @@
     tools:context=".HomeActivity">
 
        <EditText
+           android:visibility="gone"
            android:textColor="@color/accentColor"
            android:hint="Search any store"
            android:layout_marginRight="16dp"

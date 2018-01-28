@@ -37,7 +37,7 @@
             android:id="@+id/txtBottom"
             android:text="All Stores A-Z"
             android:textColor="#fff"
-            android:background="#fc922a"
+            android:background="#C5051E"
             android:layout_width="match_parent"
             android:layout_height="wrap_content" />
 </RelativeLayout>

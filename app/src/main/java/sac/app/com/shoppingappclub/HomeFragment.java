@@ -192,23 +192,21 @@ public class HomeFragment extends Fragment {
         void openWebView(String url) {
 
 
-            Intent intent = new Intent(getActivity(), WebViewerActivity.class);
+           Intent intent = new Intent(getActivity(), WebViewerActivity.class);
             intent.putExtra(WebViewerActivity.EXTRA_URL, url);
             startActivity(intent);
 
 
-        /*   new FinestWebView.Builder(getActivity())
+   /* new FinestWebView.Builder(getActivity())
                     .toolbarScrollFlags(AppBarLayout.LayoutParams.SCROLL_FLAG_SCROLL | AppBarLayout.LayoutParams.SCROLL_FLAG_ENTER_ALWAYS)
                     .gradientDivider(false)
                     .iconDisabledColorRes(R.color.gray)
-                    .progressBarHeight(3)
-                    .progressBarColorRes(R.color.primaryColor)
                     .backPressToClose(false)
                     .setCustomAnimations(R.anim.activity_open_enter, R.anim.activity_open_exit, R.anim.activity_close_enter, R.anim.activity_close_exit)
-                    .show(url);*/
+                    .show(url);
+*/
 
-
-         /*   Intent ii = new Intent(getActivity(), WebViewActivity.class);
+       /*    Intent ii = new Intent(getActivity(), WebViewActivity.class);
         ii.putExtra("url", url);
         startActivity(ii);*/
 
